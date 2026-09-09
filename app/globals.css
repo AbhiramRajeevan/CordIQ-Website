@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light theme. Warm cream base rather than stark white/slate — the
+     white+slate-900+blue combo is the default look of countless generated
+     Tailwind sites, so leaning warm here (and keeping orange/violet as the
+     accents instead of switching to blue) is a deliberate way to not read
+     as a template. Space-separated r g b triples so Tailwind's
+     rgb(var(--x) / <alpha-value>) opacity syntax works with bg-orange/50 etc. */
+  --color-bg0: 251 249 246;
+  --color-bg1: 244 238 231;
+  --color-bg2: 239 230 220;
+  --color-line: 227 217 200;
+  --color-orange: 245 130 46;
+  --color-orangeDim: 201 99 30;
+  --color-violet: 124 58 237;
+  --color-violetSoft: 196 181 253;
+  --color-green: 22 163 74;
+  --color-hi: 36 27 18;
+  --color-mid: 107 93 79;
+  --color-low: 156 140 120;
+}
+
+.dark {
+  /* CordIQ's original dark theme, unchanged. */
+  --color-bg0: 18 8 31;
+  --color-bg1: 27 15 48;
+  --color-bg2: 36 21 65;
+  --color-line: 52 32 92;
+  --color-orange: 245 130 46;
+  --color-orangeDim: 201 99 30;
+  --color-violet: 139 92 246;
+  --color-violetSoft: 76 46 143;
+  --color-green: 52 211 153;
+  --color-hi: 246 242 252;
+  --color-mid: 184 174 208;
+  --color-low: 122 111 151;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  background: rgb(var(--color-bg0));
+  color: rgb(var(--color-hi));
+  transition: background-color .25s ease, color .25s ease;
+}
+
+::selection {
+  background: rgb(var(--color-orange) / 0.18);
+  color: rgb(var(--color-hi));
+}
+
+.text-gradient {
+  /* Mostly-orange with violet only easing in near the end, rather than a
+     full orange->peach->violet sweep across the whole string — the latter
+     is a very recognizable "AI-generated landing page hero" tell. */
+  background: linear-gradient(100deg, rgb(var(--color-orange)), rgb(var(--color-orange)) 55%, rgb(var(--color-violet)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid {
+  background-image: linear-gradient(to right, rgb(var(--color-hi) / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--color-hi) / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.glass-card {
+  background: rgb(var(--color-bg2) / 0.72);
+  border: 1px solid rgb(var(--color-line));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px -14px rgb(var(--color-hi) / 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* Keep scroll-driven transitions on the compositor for a softer, more fluid feel. */
+[data-story-scroll] {
+  will-change: transform, opacity;
+}
+
+.hero-grid {
+  background-image: linear-gradient(rgb(var(--color-hi) / .035) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--color-hi) / .035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
+}
+
+section { scroll-margin-top: 100px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
