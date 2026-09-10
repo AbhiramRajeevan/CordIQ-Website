@@ -39,13 +39,13 @@ export function Hero() {
             From websites and custom software to office networks, CCTV, hosting and IT support — CordIQ helps businesses set up, secure and maintain the technology they depend on.
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-3">
-            <a href="/contact" className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-orange to-orangeDim text-bg0 px-6 py-3.5 text-sm font-semibold shadow-[0_8px_24px_-8px_rgba(245,130,46,0.4)] hover:-translate-y-0.5 transition-transform">
+          <div className="mt-9 flex flex-nowrap items-center gap-2 sm:gap-3">
+            <a href="/contact" className="group inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-br from-orange to-orangeDim text-bg0 px-4 sm:px-6 py-3 sm:py-3.5 text-[13px] sm:text-sm font-semibold shadow-[0_8px_24px_-8px_rgba(245,130,46,0.4)] hover:-translate-y-0.5 transition-transform whitespace-nowrap">
               Get a Free Quote
-              <ArrowIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1 flex-shrink-0" />
             </a>
-            <a href="https://wa.link/m2qc5a" className="inline-flex items-center gap-2 rounded-full border border-line bg-black/[0.025] px-6 py-3.5 text-sm font-semibold text-mid hover:text-hi hover:border-violetSoft transition-colors">
-              <WhatsAppIcon className="w-4 h-4" />
+            <a href="https://wa.link/m2qc5a" className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-line bg-black/[0.025] px-4 sm:px-6 py-3 sm:py-3.5 text-[13px] sm:text-sm font-semibold text-mid hover:text-hi hover:border-violetSoft transition-colors whitespace-nowrap">
+              <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
               WhatsApp Us
             </a>
           </div>

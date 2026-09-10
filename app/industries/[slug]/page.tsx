@@ -72,16 +72,16 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
               <p className="text-mid text-[16.5px] leading-relaxed max-w-[620px] mb-7">
                 {industry.subheading}
               </p>
-              <div className="flex flex-wrap gap-3.5">
+              <div className="flex flex-nowrap gap-2 sm:gap-3.5">
                 <a
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold bg-gradient-to-br from-orange to-orangeDim text-bg0 shadow-[0_8px_24px_-8px_rgba(245,130,46,0.4)] hover:-translate-y-0.5 transition-transform"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full text-[13px] sm:text-sm font-semibold bg-gradient-to-br from-orange to-orangeDim text-bg0 shadow-[0_8px_24px_-8px_rgba(245,130,46,0.4)] hover:-translate-y-0.5 transition-transform whitespace-nowrap"
                 >
                   Get a Free Quote
                 </a>
                 <a
                   href="https://wa.link/m2qc5a"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold border border-line bg-black/[0.025] hover:bg-black/[0.045] hover:border-low transition-colors"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full text-[13px] sm:text-sm font-semibold border border-line bg-black/[0.025] hover:bg-black/[0.045] hover:border-low transition-colors whitespace-nowrap"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
                   WhatsApp Us
@@ -237,16 +237,16 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
               <p className="text-mid max-w-[460px] mx-auto mb-8 text-[15px]">
                 Book a free 15-minute consultation. Written proposal before any work starts.
               </p>
-              <div className="flex gap-3.5 justify-center flex-wrap">
+              <div className="flex gap-2 sm:gap-3.5 justify-center flex-nowrap">
                 <a
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold bg-gradient-to-br from-orange to-orangeDim text-bg0 shadow-[0_8px_24px_-8px_rgba(245,130,46,0.4)] hover:-translate-y-0.5 transition-transform"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full text-[13px] sm:text-sm font-semibold bg-gradient-to-br from-orange to-orangeDim text-bg0 shadow-[0_8px_24px_-8px_rgba(245,130,46,0.4)] hover:-translate-y-0.5 transition-transform whitespace-nowrap"
                 >
                   Get a Free Quote
                 </a>
                 <a
                   href="https://wa.link/m2qc5a"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold border border-line bg-black/[0.025] hover:bg-black/[0.045] hover:border-low transition-colors"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full text-[13px] sm:text-sm font-semibold border border-line bg-black/[0.025] hover:bg-black/[0.045] hover:border-low transition-colors whitespace-nowrap"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
                   WhatsApp
