@@ -44,7 +44,7 @@ export function Hero() {
               Get a Free Quote
               <ArrowIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
-            <a href="https://wa.me/917248962559" className="inline-flex items-center gap-2 rounded-full border border-line bg-black/[0.025] px-6 py-3.5 text-sm font-semibold text-mid hover:text-hi hover:border-violetSoft transition-colors">
+            <a href="https://wa.link/m2qc5a" className="inline-flex items-center gap-2 rounded-full border border-line bg-black/[0.025] px-6 py-3.5 text-sm font-semibold text-mid hover:text-hi hover:border-violetSoft transition-colors">
               <WhatsAppIcon className="w-4 h-4" />
               WhatsApp Us
             </a>

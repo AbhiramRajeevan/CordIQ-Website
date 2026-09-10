@@ -194,10 +194,20 @@ export function Navbar() {
             aria-expanded={mobileOpen}
             className="md:hidden relative w-10 h-10 flex-shrink-0 rounded-full border border-line bg-bg1/80 backdrop-blur-sm flex items-center justify-center"
           >
-            <span className="relative w-4 h-3">
-              <span className={`absolute left-0 top-0 w-4 h-[1.5px] bg-hi rounded-full transition-all ${mobileOpen ? "top-1/2 -translate-y-1/2 rotate-45" : ""}`} />
-              <span className={`absolute left-0 bottom-0 w-4 h-[1.5px] bg-hi rounded-full transition-all ${mobileOpen ? "bottom-1/2 translate-y-1/2 -rotate-45" : ""}`} />
-            </span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-hi">
+              <motion.line
+                x1="2" y1="6" x2="14" y2="6"
+                stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"
+                animate={{ rotate: mobileOpen ? 45 : 0, y: mobileOpen ? 2 : 0 }}
+                style={{ transformOrigin: "8px 6px" }}
+              />
+              <motion.line
+                x1="2" y1="10" x2="14" y2="10"
+                stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"
+                animate={{ rotate: mobileOpen ? -45 : 0, y: mobileOpen ? -2 : 0 }}
+                style={{ transformOrigin: "8px 10px" }}
+              />
+            </svg>
           </button>
         </div>
       </nav>

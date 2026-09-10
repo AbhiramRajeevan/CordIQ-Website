@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const contactMethods = [
-  { label: "WhatsApp", value: "Chat with us now", href: "https://wa.me/917248962559", icon: WhatsAppIcon },
+  { label: "WhatsApp", value: "Chat with us now", href: "https://wa.link/m2qc5a", icon: WhatsAppIcon },
   { label: "Email", value: "info@cordiq.in", href: "mailto:info@cordiq.in", icon: MailIcon },
 ];
 

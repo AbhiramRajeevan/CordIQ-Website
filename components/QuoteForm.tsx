@@ -24,7 +24,7 @@ export function QuoteForm({ serviceName }: { serviceName: string }) {
       message ? `Message: ${message}` : null,
     ].filter(Boolean);
     const text = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/917248962559?text=${text}`, "_blank");
+    window.open(`https://wa.me/918848236069?text=${text}`, "_blank");
   }
 
   const fieldClass =

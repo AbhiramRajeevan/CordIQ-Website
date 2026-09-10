@@ -77,7 +77,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               </p>
               <div className="flex flex-wrap gap-3.5">
                 <a
-                  href={`https://wa.me/917248962559?text=${encodeURIComponent(
+                  href={`https://wa.me/918848236069?text=${encodeURIComponent(
                     `Hi CordIQ, I'd like a quote for ${service.navLabel}.`
                   )}`}
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold bg-gradient-to-br from-orange to-orangeDim text-bg0 shadow-[0_8px_24px_-8px_rgba(245,130,46,0.4)] hover:-translate-y-0.5 transition-transform"
@@ -85,7 +85,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   Get a Free Quote
                 </a>
                 <a
-                  href="https://wa.me/917248962559"
+                  href="https://wa.link/m2qc5a"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold border border-line bg-black/[0.025] hover:bg-black/[0.045] hover:border-low transition-colors"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
@@ -260,7 +260,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   Get a Free Quote
                 </a>
                 <a
-                  href="https://wa.me/917248962559"
+                  href="https://wa.link/m2qc5a"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold border border-line bg-black/[0.025] hover:bg-black/[0.045] hover:border-low transition-colors"
                 >
                   <WhatsAppIcon className="w-4 h-4" />

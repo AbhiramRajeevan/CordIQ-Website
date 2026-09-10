@@ -222,7 +222,7 @@ export function CordIQVisual({ compact = false }: { compact?: boolean }) {
 
       <div className="grid grid-cols-2 gap-3 md:hidden">
         {services.map((s) => (
-          <div key={s.label} className="glass-card rounded-2xl p-3.5 flex items-center gap-3">
+          <div key={s.label} className="glass-card rounded-2xl p-3.5 flex items-center gap-3 min-w-0">
             <div
               className="w-9 h-9 rounded-lg border flex items-center justify-center flex-shrink-0"
               style={{ borderColor: colorVar[s.color], color: colorVar[s.color] }}
@@ -231,7 +231,7 @@ export function CordIQVisual({ compact = false }: { compact?: boolean }) {
             </div>
             <div className="min-w-0">
               <div className="font-mono text-[8.5px] uppercase tracking-[.1em] text-low truncate">{s.label}</div>
-              <div className="mt-0.5 text-[12.5px] font-semibold leading-snug">{s.subtitle}</div>
+              <div className="mt-0.5 text-[12.5px] font-semibold leading-snug break-words">{s.subtitle}</div>
             </div>
           </div>
         ))}

@@ -31,7 +31,7 @@ export function FinalCTA() {
                 Book a Consultation
               </a>
               <a
-                href="https://wa.me/917248962559"
+                href="https://wa.link/m2qc5a"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold border border-line bg-black/[0.025] hover:bg-black/[0.045] hover:border-low transition-colors"
               >
                 <WhatsAppIcon className="w-4 h-4" />
