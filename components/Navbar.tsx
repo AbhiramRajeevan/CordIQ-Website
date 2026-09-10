@@ -23,6 +23,20 @@ export function Navbar() {
   const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
 
   useEffect(() => {
+    // The browser's own scroll-position memory can fight Next.js's
+    // scroll-to-top-on-navigate behavior — if you'd previously scrolled
+    // deep into a page (e.g. the homepage's tall pinned sections) and then
+    // navigate back to it later, the browser can restore that old position
+    // instead of Next.js resetting to the top, which is what made the logo
+    // link (and any other internal link back to an already-visited page)
+    // land at the bottom instead of the top. Turning this off hands scroll
+    // positioning entirely to Next.js's router, which does reset to top.
+    if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  useEffect(() => {
     // A single threshold here would let scrollY hover right at that point
     // (very easy to do with momentum/inertial scrolling) and flip `scrolled`
     // back and forth on every tiny fluctuation — each flip re-triggers the

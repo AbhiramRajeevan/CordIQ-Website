@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Reveal, RevealItem, RevealStagger } from "@/components/Reveal";
-import { CheckIcon, WhatsAppIcon } from "@/components/visuals/Icons";
+import { CheckIcon, WhatsAppIcon, ShieldCheckOutlineIcon, DocumentCheckIcon, HeadsetIcon } from "@/components/visuals/Icons";
 
 export const metadata: Metadata = {
   title: "About CordIQ | IT Company in Pune",
@@ -21,9 +21,9 @@ const atAGlance = [
 ];
 
 const values = [
-  { title: "Accountability", body: "One partner who owns the outcome — no finger-pointing between vendors." },
-  { title: "Honesty", body: "Clear scope, transparent pricing and realistic timelines. No jargon, no surprises." },
-  { title: "Reliability", body: "We show up — on-site when it matters and proactively before things break." },
+  { title: "Accountability", icon: ShieldCheckOutlineIcon, body: "One partner who owns the outcome — no finger-pointing between vendors." },
+  { title: "Honesty", icon: DocumentCheckIcon, body: "Clear scope, transparent pricing and realistic timelines. No jargon, no surprises." },
+  { title: "Reliability", icon: HeadsetIcon, body: "We show up — on-site when it matters and proactively before things break." },
 ];
 
 export default function AboutPage() {
@@ -118,6 +118,9 @@ export default function AboutPage() {
             {values.map((v) => (
               <RevealItem key={v.title}>
                 <div className="h-full bg-bg1 border border-line rounded-card p-6">
+                  <div className="w-11 h-11 rounded-xl bg-orange/10 flex items-center justify-center text-orange mb-4">
+                    <v.icon className="w-5 h-5" />
+                  </div>
                   <h3 className="text-[16.5px] font-semibold mb-2">{v.title}</h3>
                   <p className="text-[14px] text-mid leading-relaxed">{v.body}</p>
                 </div>
