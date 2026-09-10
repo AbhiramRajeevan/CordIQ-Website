@@ -12,7 +12,14 @@ export function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 55]);
 
   return (
-    <section ref={ref} className="relative min-h-[92vh] pt-[150px] pb-20 overflow-hidden hero-grid">
+    <section ref={ref} className="relative min-h-[92vh] pt-[150px] pb-20 overflow-hidden">
+      {/* hero-grid's mask-image was previously on the <section> itself — a CSS
+          mask affects an element's ENTIRE rendered output, not just its own
+          background-image, so every child (including the stats row sitting
+          near the bottom of this tall section) was being faded out along
+          with the decorative grid pattern. Isolated to its own layer so only
+          the grid fades, never the actual content. */}
+      <div className="absolute inset-0 pointer-events-none hero-grid" aria-hidden="true" />
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute -top-32 right-[8%] w-[520px] h-[520px] rounded-full bg-violet/20 blur-[110px]" />
         <div className="absolute top-[30%] -left-40 w-[440px] h-[440px] rounded-full bg-orange/10 blur-[120px]" />
@@ -44,9 +51,9 @@ export function Hero() {
           </div>
 
           <div className="mt-14 grid grid-cols-3 max-w-[560px] border-t border-line pt-5 gap-5">
-            <div><div className="font-display text-xl font-semibold text-hi">IT + Web</div><div className="mt-1 text-xs text-mid">One partner, full stack</div></div>
-            <div><div className="font-display text-xl font-semibold text-hi">On-site</div><div className="mt-1 text-xs text-mid">Pune & PCMC support</div></div>
-            <div><div className="font-display text-xl font-semibold text-hi">UK &amp; India</div><div className="mt-1 text-xs text-mid">Clients served</div></div>
+            <div><div className="font-display text-xl font-semibold" style={{ color: "rgb(var(--color-hi))" }}>IT + Web</div><div className="mt-1 text-xs" style={{ color: "rgb(var(--color-mid))" }}>One partner, full stack</div></div>
+            <div><div className="font-display text-xl font-semibold" style={{ color: "rgb(var(--color-hi))" }}>On-site</div><div className="mt-1 text-xs" style={{ color: "rgb(var(--color-mid))" }}>Pune & PCMC support</div></div>
+            <div><div className="font-display text-xl font-semibold" style={{ color: "rgb(var(--color-hi))" }}>UK &amp; India</div><div className="mt-1 text-xs" style={{ color: "rgb(var(--color-mid))" }}>Clients served</div></div>
           </div>
         </motion.div>
 

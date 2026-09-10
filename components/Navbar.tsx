@@ -18,6 +18,9 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -164,7 +167,7 @@ export function Navbar() {
           >
             <PhoneIcon className="w-4 h-4" />
           </motion.a>
-          <Link href="/contact">
+          <Link href="/contact" className="hidden sm:block">
             <motion.span
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.97 }}
@@ -173,8 +176,114 @@ export function Navbar() {
               Get a Quote
             </motion.span>
           </Link>
+          <button
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            className="md:hidden relative w-10 h-10 flex-shrink-0 rounded-full border border-line flex items-center justify-center"
+          >
+            <span className="relative w-4 h-3">
+              <span className={`absolute left-0 top-0 w-4 h-[1.5px] bg-hi rounded-full transition-all ${mobileOpen ? "top-1/2 -translate-y-1/2 rotate-45" : ""}`} />
+              <span className={`absolute left-0 bottom-0 w-4 h-[1.5px] bg-hi rounded-full transition-all ${mobileOpen ? "bottom-1/2 translate-y-1/2 -rotate-45" : ""}`} />
+            </span>
+          </button>
         </div>
       </nav>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden overflow-hidden border-t border-line bg-bg0"
+          >
+            <div className="max-w-[1180px] mx-auto px-8 py-5 flex flex-col gap-1 text-[15px]">
+              <button
+                onClick={() => setMobileServicesOpen((v) => !v)}
+                className="flex items-center justify-between py-3 font-semibold"
+              >
+                Services
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className={`transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}>
+                  <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <AnimatePresence>
+                {mobileServicesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="overflow-hidden flex flex-col gap-0.5 pb-2"
+                  >
+                    {services.map((s) => (
+                      <Link
+                        key={s.slug}
+                        href={`/services/${s.slug}`}
+                        onClick={() => setMobileOpen(false)}
+                        className="py-2.5 pl-3 text-mid border-l border-line"
+                      >
+                        {s.navLabel}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <button
+                onClick={() => setMobileIndustriesOpen((v) => !v)}
+                className="flex items-center justify-between py-3 font-semibold border-t border-line"
+              >
+                Industries
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className={`transition-transform ${mobileIndustriesOpen ? "rotate-180" : ""}`}>
+                  <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <AnimatePresence>
+                {mobileIndustriesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="overflow-hidden flex flex-col gap-0.5 pb-2"
+                  >
+                    {industries.map((i) => (
+                      <Link
+                        key={i.slug}
+                        href={`/industries/${i.slug}`}
+                        onClick={() => setMobileOpen(false)}
+                        className="py-2.5 pl-3 text-mid border-l border-line"
+                      >
+                        {i.navLabel}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {links.map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="py-3 font-semibold border-t border-line"
+                >
+                  {l.label}
+                </Link>
+              ))}
+
+              <Link
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="mt-4 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-[14px] font-semibold bg-gradient-to-br from-orange to-orangeDim text-bg0"
+              >
+                Get a Quote
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
