@@ -23,7 +23,19 @@ export function Navbar() {
   const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    // A single threshold here would let scrollY hover right at that point
+    // (very easy to do with momentum/inertial scrolling) and flip `scrolled`
+    // back and forth on every tiny fluctuation — each flip re-triggers the
+    // header's background/blur transition, which reads as a flicker/dim.
+    // Two thresholds with a dead zone between them means the state can only
+    // change by crossing a clear boundary, not by sitting near one.
+    const onScroll = () => {
+      setScrolled((prev) => {
+        if (window.scrollY > 40) return true;
+        if (window.scrollY < 15) return false;
+        return prev;
+      });
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -163,7 +175,7 @@ export function Navbar() {
             href="tel:+917248962559"
             aria-label="Call CordIQ"
             title="Call CordIQ"
-            className="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full border border-line text-mid hover:text-hi hover:border-orange/50 transition-colors"
+            className="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full border border-line bg-bg1/80 backdrop-blur-sm text-mid hover:text-hi hover:border-orange/50 transition-colors"
           >
             <PhoneIcon className="w-4 h-4" />
           </motion.a>
@@ -180,7 +192,7 @@ export function Navbar() {
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
-            className="md:hidden relative w-10 h-10 flex-shrink-0 rounded-full border border-line flex items-center justify-center"
+            className="md:hidden relative w-10 h-10 flex-shrink-0 rounded-full border border-line bg-bg1/80 backdrop-blur-sm flex items-center justify-center"
           >
             <span className="relative w-4 h-3">
               <span className={`absolute left-0 top-0 w-4 h-[1.5px] bg-hi rounded-full transition-all ${mobileOpen ? "top-1/2 -translate-y-1/2 rotate-45" : ""}`} />

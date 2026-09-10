@@ -34,7 +34,7 @@ export function ThemeToggle() {
   // Render a same-sized placeholder until mounted so we never flash the
   // wrong icon for a frame before we know the real (script-applied) state.
   if (!mounted) {
-    return <span className="inline-flex w-10 h-10 rounded-full border border-line" aria-hidden="true" />;
+    return <span className="inline-flex w-10 h-10 rounded-full border border-line bg-bg1/80 backdrop-blur-sm" aria-hidden="true" />;
   }
 
   return (
@@ -45,7 +45,7 @@ export function ThemeToggle() {
       whileTap={{ scale: 0.97 }}
       aria-label={isDark ? "Switch to light mode" : "Switch to night mode"}
       title={isDark ? "Switch to light mode" : "Switch to night mode"}
-      className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-line text-mid hover:text-hi hover:border-orange/50 transition-colors"
+      className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-line bg-bg1/80 backdrop-blur-sm text-mid hover:text-hi hover:border-orange/50 transition-colors"
     >
       {isDark ? <SunIcon className="w-4 h-4" /> : <MoonIcon className="w-4 h-4" />}
     </motion.button>

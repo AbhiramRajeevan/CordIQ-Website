@@ -12,7 +12,7 @@ export function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 55]);
 
   return (
-    <section ref={ref} className="relative min-h-[92vh] pt-[150px] pb-20 overflow-hidden">
+    <section ref={ref} className="relative min-h-[92vh] pt-[110px] pb-20 overflow-hidden">
       {/* hero-grid's mask-image was previously on the <section> itself — a CSS
           mask affects an element's ENTIRE rendered output, not just its own
           background-image, so every child (including the stats row sitting
